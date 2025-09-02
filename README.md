@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dashboard App
 
-## Getting Started
+A simple dashboard application built with Next.js, TypeScript, Redux Toolkit (RTK Query), and Tailwind CSS.
 
-First, run the development server:
+## Features
+
+- **Item List Page**: A paginated list of items displaying ID, Title, Description, and Status.
+- **Search & Filter**: Search items by title using a text input and filter by status using a dropdown.
+- **Item Details**: Click on an item to open a side panel showing detailed information.
+- **Add Item Form**: A form to create new items with Title, Description, and Status.
+
+## Tech Stack
+
+- **Frontend**: Next.js, React, TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Redux Toolkit with RTK Query
+- **UI Components**: Headless UI for accessible modals and dropdowns
+
+## Setup and Running
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd abdullah-task
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Run the development server:
 
-## Learn More
+```bash
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Implementation Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Mock API**: Created a simple `/api/items` endpoint that serves mock data from an in-memory array.
+- **State Management**: Used Redux Toolkit with RTK Query for efficient data fetching, caching, and state management.
+- **Responsive Design**: The application is fully responsive and works well on all screen sizes.
+- **Loading/Error States**: Implemented proper loading, error, and empty state handling for a better user experience.
+- **Accessibility**: Used Headless UI components to ensure good accessibility practices.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/src/app`: Next.js application directory
+- `/src/components`: React components organized by feature
+- `/src/redux`: Redux store setup, slices, and API configuration
+- `/src/types`: TypeScript type definitions
+- `/src/data`: Mock data for the application
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Endpoints
+
+- `GET /api/items`: Get a paginated list of items with optional filters
+  - Query parameters: `title`, `status`, `page`, `limit`
+- `POST /api/items`: Create a new item
+  - Body: `{ title, description, status }`
